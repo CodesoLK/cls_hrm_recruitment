@@ -8,8 +8,9 @@
     'depends': [ 'base','hr_recruitment',],
                  
     'data': [
-        'views/recruitment_views.xml',
         'security/security.xml',
+        'views/recruitment_views.xml',
+        
      
      
      
