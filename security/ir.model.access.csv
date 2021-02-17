@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ac1_director,ac1.director,model_hr_job,cls_hrm_recruitment.group_director,1,1,1,1
+ac2_director,ac2.director,model_hr_applicant,cls_hrm_recruitment.group_director,1,1,1,1
+ac3_director,ac3.director,model_hr_recruitment_stage,cls_hrm_recruitment.group_director,1,1,1,1
+ac4_director,ac4.director,model_hr_applicant_category,cls_hrm_recruitment.group_director,1,1,1,1
+ac5_director,ac5.director,model_hr_recruitment_degree,cls_hrm_recruitment.group_director,1,1,1,1
+ac6_director,ac6.director,model_hr_recruitment_source,cls_hrm_recruitment.group_director,1,1,1,1
+ac7_director,ac7.director,model_hr_department,cls_hrm_recruitment.group_director,1,1,1,1
+ac8_director,ac8.director,model_hr_contract,cls_hrm_recruitment.group_director,1,1,1,1
+ac1_hr,ac1.hr,model_hr_job,cls_hrm_recruitment.group_hrm_hr,1,1,1,0
+ac2_hr,ac2.hr,model_hr_applicant,cls_hrm_recruitment.group_hrm_hr,1,1,1,0
+ac3_hr,ac3.hr,model_hr_recruitment_stage,cls_hrm_recruitment.group_hrm_hr,1,0,0,0
+ac4_hr,ac4.hr,model_hr_contract,cls_hrm_recruitment.group_hrm_hr,1,1,1,0
+ac1_hod,ac1.hod,model_hr_job,cls_hrm_recruitment.group_hrm_hod,1,1,1,0
+ac2_hod,ac2.hod,model_hr_applicant,cls_hrm_recruitment.group_hrm_hod,1,1,1,0
+ac3_hod,ac3.hod,model_hr_recruitment_stage,cls_hrm_recruitment.group_hrm_hod,1,1,0,0

@@ -9,10 +9,13 @@
                  
     'data': [
         'security/security.xml',
+        'security/ir.model.access.csv',
+        'data/cron.xml',
+        'data/emp_agecron.xml',
         'views/recruitment_views.xml',
-        
-     
-     
+        'views/contract_views.xml',
+        'views/employee_views.xml',
+
      
      
                                     

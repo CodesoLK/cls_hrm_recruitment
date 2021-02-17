@@ -22,7 +22,60 @@
         <field name="category_id" ref="module_category_hrm_leaf"/>
     </record>
 
+ <menuitem name="Recruitment"
+    id="hr_recruitment.menu_hr_recruitment_root"
+    groups="cls_hrm_recruitment.group_director,cls_hrm_recruitment.group_hrm_hod,cls_hrm_recruitment.group_hrm_hr,cls_hrm_recruitment.group_hrm_accountant" 
+    sequence="6"/>
+
+    <menuitem name="Stages"
+    id="hr_recruitment.menu_hr_recruitment_stage"
+    parent="hr_recruitment.menu_hr_recruitment_configuration"
+    groups="cls_hrm_recruitment.group_director"/>
+
+    <menuitem name="Tags"
+    id="hr_recruitment.hr_applicant_category_menu"
+    parent="hr_recruitment.menu_hr_recruitment_configuration"
+    groups="cls_hrm_recruitment.group_director"/>
+
+    <menuitem name="Degrees"
+    id="hr_recruitment.menu_hr_recruitment_degree"
+    parent="hr_recruitment.menu_hr_recruitment_configuration"
+    groups="cls_hrm_recruitment.group_director"/>
+
+    <menuitem name="Sources of Applicants"
+    id="hr_recruitment.menu_hr_recruitment_source"
+    parent="hr_recruitment.menu_hr_recruitment_configuration"
+    groups="cls_hrm_recruitment.group_director"/>
 
 
+
+
+
+<!-- 
+END of Recruitment -->
+
+<record id="group_hrm_accountant" model="res.groups">
+        <field name="name">Accountant</field>
+        <field name="category_id" ref="module_category_hrm_leaf"/>
+    </record>
+
+<record id="group_hrm_aca" model="res.groups">
+        <field name="name">Accountant Assistant</field>
+        <field name="category_id" ref="module_category_hrm_leaf"/>
+    </record>
+
+<record id="group_hrm_asa" model="res.groups">
+        <field name="name">Assistant Accountant</field>
+        <field name="category_id" ref="module_category_hrm_leaf"/>
+    </record>
+
+
+    <menuitem name="Contracts"
+    id="hr_contract.hr_menu_contract"
+    parent="hr.menu_hr_root"
+    groups="cls_hrm_recruitment.group_director,cls_hrm_recruitment.group_hrm_hod,cls_hrm_recruitment.group_hrm_hr,cls_hrm_recruitment.group_hrm_accountant" 
+    sequence="6"/>
+
+    
 
 </flectra>

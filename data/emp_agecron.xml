@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<flectra>
+
+    <data noupdate="1"> 
+    
+        <record id="check_age_emp_cron" model="ir.cron">
+            <field name="name">Check Age</field>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.change_age()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="priority">0</field>
+        </record>
+        
+    </data>
+
+</flectra>
