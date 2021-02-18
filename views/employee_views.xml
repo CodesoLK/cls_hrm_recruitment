@@ -12,6 +12,9 @@
     <button name="resign" string="Resign Employee" type="object" class="oe_highlight oe_right" attrs = "{'invisible': [('active', '=', False)]}"/>
     </field>
 
+    <field name ="birthday" position="after">
+   <field name="agenew"/>
+    </field>
     
     
     </field>
