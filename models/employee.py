@@ -31,12 +31,13 @@ class contractInherit(models.Model):
 
     
     def change_contract(self):
-        self.search([
+        for rec in self:
+            rec.search([
 
-            ('trial_date_end', '<=', fields.Date.to_string(datetime.today())),
-        ]).write({
-            'state':'open',
-            })
+                ('trial_date_end', '<=', fields.Date.to_string(datetime.today())),
+            ]).write({
+                'state':'open',
+                })
     
     # @api.onchange('state')
     # def change_emp_tag_by_contract(self):
@@ -72,7 +73,7 @@ class employeeInherit(models.Model):
             if rec.birthday:
                 y= relativedelta(date.today(),datetime.strptime(rec.birthday, "%Y-%m-%d").date()).years
                 rec.age = y
-            if y >= 55:
+            if rec.age >= 55:
                 contracts = self.env['hr.contract'].search([('employee_id', '=', rec.id)])
                 for c in contracts:
                     if c.renewed != True:

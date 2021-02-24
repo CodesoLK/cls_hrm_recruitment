@@ -20,3 +20,7 @@ class A6(models.Model):
 
 class A7(models.Model):
     _inherit = 'hr.department'
+
+class A8(models.Model):
+    _inherit = 'resource.resource'
+
