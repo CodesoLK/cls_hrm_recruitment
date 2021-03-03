@@ -5,7 +5,7 @@
     'category': 'Extra tools',
     'sequence': '38',
     'summary': 'FOR HRM of Ceylon Leaf Springs Recruitment Process',
-    'depends': [ 'base','hr_recruitment',],
+    'depends': [ 'base','hr_recruitment','cls_hrm_leaves','ceylon_leaf_employee'],
                  
     'data': [
         'security/security.xml',
@@ -15,6 +15,7 @@
         'views/recruitment_views.xml',
         'views/contract_views.xml',
         'views/employee_views.xml',
+        'views/just_perm.xml',
 
      
      

@@ -24,3 +24,18 @@ class A7(models.Model):
 class A8(models.Model):
     _inherit = 'resource.resource'
 
+class A9(models.Model):
+    _inherit = 'hr.work.location'
+
+class A10(models.Model):
+    _inherit = 'hr.employee.line'
+
+class A11(models.Model):
+    _inherit = 'resource.calendar'
+
+class A12(models.Model):
+    _inherit = 'resource.calendar.attendance'
+
+class A13(models.Model):
+    _inherit = 'hr.payslip'
+

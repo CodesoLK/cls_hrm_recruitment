@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>              
+<flectra>
+
+<record id="inherit_is_manager" model="ir.ui.view">
+    <field name="name">inherit.hr.manager</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/> 
+    <field name="arch" type ="xml">
+
+    <button name="%(hr_contract.act_hr_employee_2_hr_contract)d" position="attributes">
+    <attribute name="groups">cls_hrm_recruitment.group_director</attribute>
+    </button>
+
+    <field name="manager" position="attributes">
+    <attribute name="groups">cls_hrm_recruitment.group_director</attribute>
+    </field>
+
+    
+
+    </field>
+</record>
+
+<record id="inherit_payroll_emp" model="ir.ui.view">
+    <field name="name">inherit.payroll.emp</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr_payroll.payroll_hr_employee_view_form"/> 
+    <field name="arch" type ="xml">
+
+    <button name="%(hr_payroll.act_hr_employee_payslip_list)d" position="attributes">
+    <attribute name="groups">cls_hrm_recruitment.group_director</attribute>
+    </button>
+
+    
+
+    </field>
+</record>
+
+<record id="i_leaves_emp1" model="ir.ui.view">
+    <field name="name">inherit.leaves.emp</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr_holidays.view_employee_form_leave_inherit"/> 
+    <field name="arch" type ="xml">
+
+    <button name="%(hr_holidays.act_hr_employee_holiday_request)d" position="attributes">
+    <attribute name="groups">cls_hrm_recruitment.group_director</attribute>
+    </button>
+
+    <!-- <xpath expr="//group[1]" position="attributes">
+        <attribute name="groups">cls_hrm_recruitment.group_director</attribute>    
+    </xpath> -->
+    
+
+    </field>
+</record>
+
+
+
+
+
+</flectra>
+
+
+
