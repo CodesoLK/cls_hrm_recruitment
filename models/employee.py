@@ -91,7 +91,7 @@ class employeeInherit(models.Model):
     visa_no = fields.Char('Visa No', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
     visa_expire = fields.Date('Visa Expire Date', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
     payslip_count = fields.Integer(compute='_compute_payslip_count', string='Payslips', groups="hr_payroll.group_hr_payroll_user,cls_hrm_recruitment.group_director")
-
+    epf_no = fields.Char(string='EPF Number')
 
     def resign(self):
         self.active = False
