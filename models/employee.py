@@ -13,14 +13,15 @@ class contractInherit(models.Model):
         if not (self.env.user.has_group('cls_hrm_recruitment.group_director') or self.env.user.has_group('cls_hrm_recruitment.group_hrm_hod')):
             vals['state'] = self.state
 
-        if vals['state'] == 'open':
-            permanent =  self.env['hr.employee.category'].search([('name', '=', 'Permanent')],limit=1)
-            emp = self.env['hr.employee'].search([('id','=', self.employee_id.id)],limit=1)
+        if vals.get('state'):
+            if vals['state'] == 'open':
+                permanent =  self.env['hr.employee.category'].search([('name', '=', 'Permanent')],limit=1)
+                emp = self.env['hr.employee'].search([('id','=', self.employee_id.id)],limit=1)
         
 
-            emp.write({
-                'category_ids': [(4,permanent.id)]
-            })
+                emp.write({
+                    'category_ids': [(4,permanent.id)]
+                })
 
 
 
