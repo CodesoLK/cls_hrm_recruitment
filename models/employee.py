@@ -1,45 +1,44 @@
 from flectra import models, fields, api, _
 from datetime import date,datetime
 from dateutil.relativedelta import relativedelta
+from flectra.exceptions import ValidationError
 
 class contractInherit(models.Model):
     _inherit = 'hr.contract'
 
     renewed = fields.Boolean('Already renewed', default = False)
 
-    @api.multi
-    def write(self,vals):
+    # @api.multi
+    # def write(self,vals):
         
-        if not (self.env.user.has_group('cls_hrm_recruitment.group_director') or self.env.user.has_group('cls_hrm_recruitment.group_hrm_hod')):
-            vals['state'] = self.state
+    #     if not (self.env.user.has_group('cls_hrm_recruitment.group_director') or self.env.user.has_group('cls_hrm_recruitment.group_hrm_hod')):
+    #         vals['state'] = self.state
 
-        if vals.get('state'):
-            if vals['state'] == 'open':
-                permanent =  self.env['hr.employee.category'].search([('name', '=', 'Permanent')],limit=1)
-                emp = self.env['hr.employee'].search([('id','=', self.employee_id.id)],limit=1)
+    #     if vals.get('state'):
+    #         if vals['state'] == 'open':
+                
+    #             permanent =  self.env['hr.employee.category'].search([('name', '=', 'Permanent')],limit=1)
+    #             emp = self.env['hr.employee'].search([('id','=', self.employee_id.id)],limit=1)
         
 
-                emp.write({
-                    'category_ids': [(4,permanent.id)]
-                })
+    #             emp.write({
+    #                 'category_ids': [(4,permanent.id)]
+    #             })
 
 
 
         
             
-        res = super(contractInherit, self).write(vals)
-        return res
+    #     res = super(contractInherit, self).write(vals)
+    #     return res
 
     
     def change_contract(self):
-        for rec in self:
-            rec.search([
-
-                ('trial_date_end', '<=', fields.Date.to_string(datetime.today())),
-            ]).write({
-                'state':'open',
-                })
-    
+        
+        contracts = self.env['hr.contract'].search([])
+        for rec in contracts:    
+            rec.search([('trial_date_end', '<=', fields.Date.to_string(datetime.today())),]).write({'state':'open',})
+            
     # @api.onchange('state')
     # def change_emp_tag_by_contract(self):
 
@@ -115,6 +114,15 @@ class employeeInherit(models.Model):
                             'state': 'pending',
                             'renewed':True,
                         })
+    
+    @api.multi
+    def _compute_show_leaves(self):
+        show_leaves = self.env['res.users'].has_group('hr_holidays.group_hr_holidays_user') or self.env['res.users'].has_group('cls_hrm_recruitment.group_director')
+        for employee in self:
+            if show_leaves or employee.user_id == self.env.user:
+                employee.show_leaves = True
+            else:
+                employee.show_leaves = False
 
             
 

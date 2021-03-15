@@ -39,3 +39,5 @@ class A12(models.Model):
 class A13(models.Model):
     _inherit = 'hr.payslip'
 
+class A14(models.Model):
+    _inherit = 'small.furnace'

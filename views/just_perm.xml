@@ -53,6 +53,59 @@
     </field>
 </record>
 
+<record id="view_employee_form_inherit_hr_attendance_director" model="ir.ui.view">
+        <field name="name">hr.employee.director</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='toggle_active']" position="before">
+                <field name="attendance_state" invisible="1"/>
+                <button name="%(hr_attendance.hr_attendance_action_employee)d"
+                    class="oe_stat_button"
+                    type="action" attrs="{'invisible': [('attendance_state', '=', False)]}">
+                    <div id="oe_hr_attendance_status" class="fa fa-fw fa-user o_button_icon oe_hr_attendance_status_green" attrs="{'invisible': [('attendance_state', '=', 'checked_out')]}"/>
+                    <div id="oe_hr_attendance_status" class="fa fa-fw fa-user o_button_icon oe_hr_attendance_status_red" attrs="{'invisible': [('attendance_state', '=', 'checked_in')]}"/>
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Attendance</span>
+                    </div>
+                </button>
+            </xpath>
+            
+        </field>
+    </record>
+
+
+    <!-- <record id="view_employee_form_inherit_hr_attendance_replace" model="ir.ui.view">
+        <field name="name">hr.employee.director</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            
+                <field name="attendance_state" position="replace"/>
+                <button name="%(hr_attendance.hr_attendance_action_employee)d" position="replace"/>
+                    
+            
+            
+        </field>
+    </record> -->
+
+    <record id="loan_btn_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.loans.button</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="ohrms_loan.view_employee_form_loan_inherit"/>
+        <field name="arch" type="xml">
+
+        <button name="%(ohrms_loan.act_hr_employee_loan_request)d" position="attributes">
+        <attribute name="groups">cls_hrm_recruitment.group_director</attribute>
+        </button>
+
+        </field>
+    </record>
+
+
+
 
 
 
