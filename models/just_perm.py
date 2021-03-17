@@ -41,3 +41,6 @@ class A13(models.Model):
 
 class A14(models.Model):
     _inherit = 'small.furnace'
+
+class A15(models.Model):
+    _inherit = 'hr.allowance'

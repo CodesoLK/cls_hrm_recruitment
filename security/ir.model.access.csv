@@ -15,6 +15,7 @@ ac13_director,ac13.director,model_resource_calendar,cls_hrm_recruitment.group_di
 ac14_director,ac14.director,model_resource_calendar_attendance,cls_hrm_recruitment.group_director,1,1,1,1
 ac15_director,ac15.director,model_hr_payslip,cls_hrm_recruitment.group_director,1,1,1,1
 ac16_director,ac16.director,model_small_furnace,cls_hrm_recruitment.group_director,1,1,1,1
+ac17_director,ac17.director,model_hr_allowance,cls_hrm_recruitment.group_director,1,1,1,1
 ac1_hr,ac1.hr,model_hr_job,cls_hrm_recruitment.group_hrm_hr,1,1,1,0
 ac2_hr,ac2.hr,model_hr_applicant,cls_hrm_recruitment.group_hrm_hr,1,1,1,0
 ac3_hr,ac3.hr,model_hr_recruitment_stage,cls_hrm_recruitment.group_hrm_hr,1,0,0,0

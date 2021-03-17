@@ -76,7 +76,7 @@
     </record>
 
 
-    <!-- <record id="view_employee_form_inherit_hr_attendance_replace" model="ir.ui.view">
+    <record id="view_employee_form_inherit_hr_attendance_replace" model="ir.ui.view">
         <field name="name">hr.employee.director</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
@@ -89,7 +89,7 @@
             
             
         </field>
-    </record> -->
+    </record>
 
     <record id="loan_btn_inherit" model="ir.ui.view">
         <field name="name">hr.employee.loans.button</field>
