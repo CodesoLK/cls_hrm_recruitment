@@ -44,3 +44,6 @@ class A14(models.Model):
 
 class A15(models.Model):
     _inherit = 'hr.allowance'
+
+class A15(models.Model):
+    _inherit = 'lunch.taken'
