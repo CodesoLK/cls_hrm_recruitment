@@ -9,6 +9,7 @@ class recruit(models.Model):
     title = fields.Many2one('res.partner.title', string='title')
     emp_type = fields.Selection([('executive', 'Executive'),('nonexec', 'Non Executive'),],string= 'Employee Type')
     stage_check = fields.Boolean('check stage', compute='check_stage_new')
+    work_locat = fields.Many2one('hr.work.location',string='Work Location')
 
     @api.multi
     def check_stage_new(self):
@@ -66,3 +67,5 @@ class recruit(models.Model):
             dict_act_window['res_id'] = employee.id
         dict_act_window['view_mode'] = 'form,tree'
         return dict_act_window
+
+        

@@ -60,37 +60,37 @@ class employeeInherit(models.Model):
 
     agenew = fields.Char('TestAge')
     # changing the user group access for fields 
-    address_home_id = fields.Many2one(
-        'res.partner', 'Private Address', help='Enter here the private address of the employee, not the one linked to your company.',
-        groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
-    country_id = fields.Many2one(
-        'res.country', 'Nationality (Country)', groups="hr.group_hr_user")
-    gender = fields.Selection([
-        ('male', 'Male'),
-        ('female', 'Female'),
-        ('other', 'Other')
-    ], groups="hr.group_hr_user,cls_hrm_recruitment.group_director", default="male")
-    marital = fields.Selection([
-        ('single', 'Single'),
-        ('married', 'Married'),
-        ('cohabitant', 'Legal Cohabitant'),
-        ('widower', 'Widower'),
-        ('divorced', 'Divorced')
-    ], string='Marital Status', groups="hr.group_hr_user,cls_hrm_recruitment.group_director", default='single')
-    birthday = fields.Date('Date of Birth', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
-    ssnid = fields.Char('SSN No', help='Social Security Number', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
-    sinid = fields.Char('SIN No', help='Social Insurance Number', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
-    identification_id = fields.Char(string='Identification No', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
-    passport_id = fields.Char('Passport No', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
-    bank_account_id = fields.Many2one(
-        'res.partner.bank', 'Bank Account Number',
-        domain="[('partner_id', '=', address_home_id)]",
-        groups="hr.group_hr_user,cls_hrm_recruitment.group_director",
-        help='Employee bank salary account')
-    permit_no = fields.Char('Work Permit No', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
-    visa_no = fields.Char('Visa No', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
-    visa_expire = fields.Date('Visa Expire Date', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
-    payslip_count = fields.Integer(compute='_compute_payslip_count', string='Payslips', groups="hr_payroll.group_hr_payroll_user,cls_hrm_recruitment.group_director")
+    # address_home_id = fields.Many2one(
+    #     'res.partner', 'Private Address', help='Enter here the private address of the employee, not the one linked to your company.',
+    #     groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
+    # country_id = fields.Many2one(
+    #     'res.country', 'Nationality (Country)', groups="hr.group_hr_user")
+    # gender = fields.Selection([
+    #     ('male', 'Male'),
+    #     ('female', 'Female'),
+    #     ('other', 'Other')
+    # ], groups="hr.group_hr_user,cls_hrm_recruitment.group_director", default="male")
+    # marital = fields.Selection([
+    #     ('single', 'Single'),
+    #     ('married', 'Married'),
+    #     ('cohabitant', 'Legal Cohabitant'),
+    #     ('widower', 'Widower'),
+    #     ('divorced', 'Divorced')
+    # ], string='Marital Status', groups="hr.group_hr_user,cls_hrm_recruitment.group_director", default='single')
+    # birthday = fields.Date('Date of Birth', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
+    # ssnid = fields.Char('SSN No', help='Social Security Number', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
+    # sinid = fields.Char('SIN No', help='Social Insurance Number', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
+    # identification_id = fields.Char(string='Identification No', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
+    # passport_id = fields.Char('Passport No', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
+    # bank_account_id = fields.Many2one(
+    #     'res.partner.bank', 'Bank Account Number',
+    #     domain="[('partner_id', '=', address_home_id)]",
+    #     groups="hr.group_hr_user,cls_hrm_recruitment.group_director",
+    #     help='Employee bank salary account')
+    # permit_no = fields.Char('Work Permit No', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
+    # visa_no = fields.Char('Visa No', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
+    # visa_expire = fields.Date('Visa Expire Date', groups="hr.group_hr_user,cls_hrm_recruitment.group_director")
+    # payslip_count = fields.Integer(compute='_compute_payslip_count', string='Payslips', groups="hr_payroll.group_hr_payroll_user,cls_hrm_recruitment.group_director")
     epf_no = fields.Char(string='EPF Number')
 
     def resign(self):
@@ -115,14 +115,14 @@ class employeeInherit(models.Model):
                             'renewed':True,
                         })
     
-    @api.multi
-    def _compute_show_leaves(self):
-        show_leaves = self.env['res.users'].has_group('hr_holidays.group_hr_holidays_user') or self.env['res.users'].has_group('cls_hrm_recruitment.group_director')
-        for employee in self:
-            if show_leaves or employee.user_id == self.env.user:
-                employee.show_leaves = True
-            else:
-                employee.show_leaves = False
+    # @api.multi
+    # def _compute_show_leaves(self):
+    #     show_leaves = self.env['res.users'].has_group('hr_holidays.group_hr_holidays_user') or self.env['res.users'].has_group('cls_hrm_recruitment.group_director')
+    #     for employee in self:
+    #         if show_leaves or employee.user_id == self.env.user:
+    #             employee.show_leaves = True
+    #         else:
+    #             employee.show_leaves = False
 
             
 

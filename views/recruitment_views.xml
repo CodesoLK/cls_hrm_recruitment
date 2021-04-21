@@ -12,6 +12,7 @@
         <field name="gender"/>
         <field name="emp_type"/>
         <field name="stage_check" invisible="1"/>
+        <field name="work_locat"/>
 
          
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>              
 <flectra>
 
-<record id="inherit_is_manager" model="ir.ui.view">
+<!-- <record id="inherit_is_manager" model="ir.ui.view">
     <field name="name">inherit.hr.manager</field>
     <field name="model">hr.employee</field>
     <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/> 
@@ -53,6 +53,21 @@
     </field>
 </record>
 
+<record id="view_employee_form_inherit_hr_attendance_replace" model="ir.ui.view">
+        <field name="name">hr.employee.director</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_attendance.view_employee_form_inherit_hr_attendance"/>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            
+                <field name="attendance_state" position="replace"/>
+                <button name="%(hr_attendance.hr_attendance_action_employee)d" position="replace"/>
+                    
+            
+            
+        </field>
+    </record>
+
 <record id="view_employee_form_inherit_hr_attendance_director" model="ir.ui.view">
         <field name="name">hr.employee.director</field>
         <field name="model">hr.employee</field>
@@ -76,20 +91,7 @@
     </record>
 
 
-    <record id="view_employee_form_inherit_hr_attendance_replace" model="ir.ui.view">
-        <field name="name">hr.employee.director</field>
-        <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr.view_employee_form"/>
-        <field name="priority">10</field>
-        <field name="arch" type="xml">
-            
-                <field name="attendance_state" position="replace"/>
-                <button name="%(hr_attendance.hr_attendance_action_employee)d" position="replace"/>
-                    
-            
-            
-        </field>
-    </record>
+    
 
     <record id="loan_btn_inherit" model="ir.ui.view">
         <field name="name">hr.employee.loans.button</field>
@@ -102,9 +104,9 @@
         </button>
 
         </field>
-    </record>
+    </record> -->
 
-
+    
 
 
 
