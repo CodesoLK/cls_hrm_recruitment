@@ -42,12 +42,11 @@
     </field>
 </record>
 
-
 <record id="applicant_inherit_hr" model="ir.ui.view">
     <field name="name">Inherit applicant for hr</field>
     <field name="model">hr.applicant</field>
     <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
-    <field name="groups_id" eval="[(6, 0, [ref('cls_hrm_recruitment.group_hrm_hr')])]" />  
+    <field name="groups_id" eval="[(6, 0, [ref('cls_access_rights.group_hrqa')])]" />  
     <field name="arch" type ="xml">
     <button name="create_employee_from_applicant" position="attributes">
     <attribute name="attrs">{'invisible': ['|',('emp_type', '=', 'executive'),('stage_check', '=', True)]}</attribute>
@@ -64,7 +63,7 @@
     <field name="name">Inherit applicant for hr</field>
     <field name="model">hr.applicant</field>
     <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
-    <field name="groups_id" eval="[(6, 0, [ref('cls_hrm_recruitment.group_hrm_hod')])]" />  
+    <field name="groups_id" eval="[(6, 0, [ref('cls_access_rights.group_accountant')])]" />  
     <field name="arch" type ="xml">
     <button name="create_employee_from_applicant" position="attributes">
     <attribute name="attrs">{'invisible': ['|',('emp_type', '=', 'executive'),('stage_check', '=', True)]}</attribute>
@@ -81,17 +80,33 @@
     <field name="name">Inherit applicant for hr</field>
     <field name="model">hr.applicant</field>
     <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
-    <field name="groups_id" eval="[(6, 0, [ref('cls_hrm_recruitment.group_director')])]" />  
+    <field name="groups_id" eval="[(6, 0, [ref('cls_access_rights.group_director')])]" />  
     <field name="arch" type ="xml">
     
     <button name="create_employee_from_applicant" position="attributes">
-    <attribute name="groups">cls_hrm_recruitment.group_director</attribute>
+    <!-- <attribute name="groups">cls_access_rights.group_director</attribute> -->
     <attribute name="attrs">{'invisible': [('stage_check', '=', True)]}</attribute>
     </button>
 
     <button name="archive_applicant" position="attributes">
-    <attribute name="groups">cls_hrm_recruitment.group_director</attribute>
+    <!-- <attribute name="groups">cls_access_rights.group_director</attribute> -->
     <attribute name="attrs">{'invisible': [('stage_check', '=', True)]}</attribute>
+    </button>
+    
+</field>
+</record>
+
+<record id="applicant_inherit_ewqr" model="ir.ui.view">
+    <field name="name">Inherit applicant</field>
+    <field name="model">hr.applicant</field>
+    <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+    <field name="arch" type ="xml">
+    <button name="create_employee_from_applicant" position="attributes">
+    <attribute name="groups">cls_access_rights.group_director,cls_access_rights.group_accountant,cls_access_rights.group_hrqa</attribute> 
+    </button>
+
+    <button name="archive_applicant" position="attributes">
+    <attribute name="groups">cls_access_rights.group_director,cls_access_rights.group_accountant,cls_access_rights.group_hrqa</attribute> 
     </button>
     
 </field>

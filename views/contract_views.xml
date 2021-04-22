@@ -5,7 +5,7 @@
     <field name="name">hr.contract.inherit.hr</field>
     <field name="model">hr.contract</field>
     <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/> 
-    <field name="groups_id" eval="[(6, 0, [ref('cls_hrm_recruitment.group_hrm_hr')])]" />   
+    <field name="groups_id" eval="[(6, 0, [ref('cls_access_rights.group_ac_as')])]" />   
     <field name="arch" type ="xml">
 
     <field name="wage" position="attributes">
