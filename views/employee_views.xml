@@ -24,6 +24,20 @@
     </field>
 </record>
 
+<record id="inherit_emp_se_tree" model="ir.ui.view">
+    <field name="name">hr.employee.inherit.tree</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_tree"/>  
+
+    <field name="arch" type ="xml">
+
+    <field name ="name" position="before">
+    <field name="epf_no"/>
+    
+    
+    </field>
+    </field>
+</record>
 
 
 
